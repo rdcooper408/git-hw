@@ -1,0 +1,77 @@
+Julia Notar
+EEB C234
+Mike Alfaro
+1/13/15
+
+Homework #2
+
+#we want to look at the first 3 lines of the 407228326.fasta file
+head -n3 407228326.fasta
+
+#look at all but the first line
+tail -n+2 407228326.fasta
+
+##count the sequence length
+#remove the first line and the end of line characters
+tail -n+2 407228326.fasta | tr -d "\n"
+#add on wc -c to count the number of characters
+tail -n+2 407228326.fasta | tr -d "\n" | wc -c
+
+#Do for other files
+tail -n+2 407228412.fasta | tr -d "\n" | wc -c
+tail -n+2 E.coli.fasta | tr -d "\n" | wc -c
+
+#Count matches of ATGC in E. coli genome
+#remove first line 
+#remove newline characters 
+#use grep to print out all occurrences of the sequence
+#count all occurrences
+tail -n+2 E.coli.fasta | tr -d "\n" | grep -o "ATGC" | wc -l
+
+#compute the AT/GC ratio
+tail -n+2 E.coli.fasta | tr -d "\n" | grep -o [A,T] | wc -l
+tail -n+2 E.coli.fasta | tr -d "\n" | grep -o [C,G] | wc -l
+
+####DARWIN####
+
+#1
+#remove the first 264 lines
+#remove lines 13900 onward
+#save results in darwin.txt
+head -n 13900 otoos10.txt | tail -n+265 > darwin.txt
+
+#2
+#Count occurrences of "evolution" or "evolved" -c
+#full words only
+#ignore case -i
+grep -i -c "evolution\|evolved" darwin.txt
+
+#3
+#Count the occurrences of "natural selection" and "Wallace"
+grep -i -c "natural selection\|Wallace" darwin.txt
+grep -i -c "natural selection" darwin.txt
+grep -i -c "Wallace" darwin.txt
+
+#Save all the commands in a text file
+echo "Occurrences of \"Evolution\" or \"Evolved\"" > jnotardarwingrep.txt
+grep -i -c "evolution\|evolved" darwin.txt >> jnotardarwingrep.txt
+echo "Occurrences of \"Natural Selection OR Wallace\"" >> jnotardarwingrep.txt
+grep -i -c "natural selection\|Wallace" darwin.txt >> jnotardarwingrep.txt
+echo "Occurrences of \"Natural Selection\"" >> jnotardarwingrep.txt
+grep -i -c "natural selection" darwin.txt >> jnotardarwingrep.txt
+echo "Occurrences of \"Wallace\"" >> jnotardarwingrep.txt
+grep -i -c "Wallace" darwin.txt >> jnotardarwingrep.txt
+cat jnotardarwingrep.txt
+
+####TEMPERATURES####
+
+#Extract the maximum temperature of each station for Jan 1st
+#TMAX
+#18000101 
+grep -r "180[0-3]0101,TMAX," 
+grep "180.0101,TMAX," 180[0-3].csv
+
+#Write a one-line command that gives the warmest temp. for a given day of 1800
+grep "18000205,TMAX,.*.,,,E" 1800.csv | cut -d "," -f 2,4 | sort | tail -n +2
+grep "18000505,TMAX,.*.,,,E" 1800.csv | cut -d "," -f 2,4 | sort | tail -n +2
+
