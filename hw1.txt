@@ -1,0 +1,52 @@
+
+Julia Notar
+Mike Alfaro
+EEB C234
+1/7/14
+
+Homework #1
+
+1. ls [A-Z]*
+list all files that begin with an uppercase letter A-Z and are not hidden files
+
+2. cp *.sh /tmp
+copy any file that ends in the extension ".sh" (a shell script) to the temporary directory
+
+3. man pwd
+show help page for the command to show the current directory
+
+4. cd ∼
+go to the home directory
+
+5. mkdir -p /test1/test2/test3 
+make directories test1, test2 and test 3 (if they do not already exist)  
+
+6. cp -r /tmp .
+copy all files from the temporary directory (and all its subdirectories) into the current working directory
+
+7. ls | less
+list the files in the directory and prints them on the screen 
+
+8. head -n 24 test.txt » abc.txt 
+take the first 24 lines of test.txt and add it to a file called abc.txt
+(will create abc.txt if it does not exist already)
+
+9. echo "aaa" > aaa.txt
+create the string "aaa" in a file called aaa.txt (if the file already exists it will be overwritten)
+
+10. ps -u sallesina
+shows the currently running processes and their usage for the user/profile sallesina
+
+11. top
+shows currently running processes, actively updating
+
+12. ls | grep .sh | xargs mv /tmp
+lists all files in current directory, grep matches all the files that end in ".sh", 
+and moves each one to the temporary directory
+
+13. du -sk /home/* | sort -r -n | head -10 
+sum of the disk usage (in kilobytes) of the directories found in the home directory, 
+output is sorted in reverse order by numeric value, and shows the first 10 results (lines) 
+
+14. sort -r names.txt
+sort in reverse order the lines of the file names.txt
