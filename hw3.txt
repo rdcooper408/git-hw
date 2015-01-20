@@ -1,0 +1,14 @@
+Julia Notar
+EEB C234
+Mike Alfaro
+1/20/15
+
+Homework #3
+
+1) Read PCFB Chapter 3 and do the example on page 32 and 33. This one will take at least two steps so take a screen shot of your regex and the output for each step to show your work. The LatLon.txt file is in the pcfb examples folder.
+
+2) Use the column selection trick on pcfb p34 to rearrange the columns in the columns_test.csv folder (in lecture_pdfs/regex_files) re try it out. Do the following: 
+
+a) change order to: institution, catalog, species, lat, long 
+
+b)change delimiter from comma to tab
