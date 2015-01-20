@@ -1,3 +1,6 @@
+This is the JULia and MIke hmwk 2 that we turned in on week 2, reflecting 
+chapter 2
+
 Julia Notar
 EEB C234
 Mike Alfaro
