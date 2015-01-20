@@ -1,0 +1,57 @@
+Julia Notar
+EEB C234
+Mike Alfaro
+1/15/15
+
+##Exercise 1: replace genus species with G_species
+
+find: (\w)\w+ (\w+)
+replace: \1_\2
+
+C_megalops
+L_griseus
+L_bergianus
+L_godlewskii
+L_pallidus
+N_werestschagini
+
+replace Genus species with Genus species G_species
+
+find: (\w)(\w+) (\w+)
+replace: \1\2 \3 \1_\3
+
+Abyssocottus elochini A_elochini
+Abyssocottus korotneffi A_korotneffi
+Abyssocottus gibbosus A_gibbosus
+Asprocottus intermedius A_intermedius
+Asprocottus abyssalis A_abyssalis
+
+capture lat/lon pairs
+capture latitude & longitude degree pairs and leave out NSEW
+(.\d+) (\d+\.\d)'\w\s+ (.\d+) (\d+\.\d)'\w
+
+separate degree pairs by tab
+\1\t\2\t\3\t\4
+
+latlong2:
+(.\d+)\s+(\d+\.\d\')\w\s+(.\d+)\s+(\d+\.\d\')\w
+\1\t\2\t\3\t\4
+
+##Exercise 2
+Change every line to 
+>CAA58790_Aequorea
+
+find: (.\w+)\..+\[(\w+).+\s.+\s
+replace:  \1_\2\r
+
+##Exercise 3
+change all taxon names so that Genus_species is G. species on phylo tree
+
+#a work in progress, but this is as far as I got
+find: \((\w)\w+.(\w+)\:.+
+replace: \1. \2\r
+
+Actual (figured out later)
+find: (\(|\,)(\w)\w+_(\w+)(\:)
+replace: \1\2. \3\4
+
